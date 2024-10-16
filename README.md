@@ -45,7 +45,7 @@ We can also estimate the expectation of a Binomial distribution using Monte Carl
 **Central Limit Theorem:** For sufficiently large sample sizes, the sample mean follows an approximately normal distribution. We will generate 100 samples from binomial distribution using the inversion method and compute the sample mean as an estimator for the expectation. The standard error of the mean is given by:
 
 ```math
-SE = \sigma $`\sqrt{\$n}`$
+SE = \sigma /$\sqrt{\n}$
 
 Where σ is the sample standard deviation and n is the number of samples.
 an approximate 95% confidence interval for the expectation:
