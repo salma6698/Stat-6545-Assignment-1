@@ -55,17 +55,37 @@ where, $$\hat{\mu}$$
 is the mean and z_{0.025}=1.96 is the critical value for a 95% confidence interval.
 
 **Explanation:**
+
 •	The mean of the samples is our estimate of the expectation.
+
 •	We calculate the standard error and 95% confidence interval using the Central Limit Theorem.
 
 **Restatement of the Theory:** The Central Limit Theorem states that for large enough sample sizes, the sampling distribution of the sample mean will be approximately normally distributed, regardless of the underlying distribution. The mean of this distribution is the true mean, and the standard deviation is the standard error. The 95% confidence interval is then computed as $$mean \pm 1.96 * SE$$.
 
 **Result from R code:**
+
 Estimated expectation: 3.34
 
 Standard error: 0.144404
 
 95% confidence interval: (3.056968, 3.623032)
 
+2. Write a program that draws samples of Poisson(t) random variables using Uniform[0, 1] variables as input. Use the transformation method to do so. Hint: recall that if Xi are i.i.d. Exponential(1) random variables and Sn = Pn i=1 Xi , then P(Sn ≤ t ≤ Sn+1) = e −t t n n! . You may use this result without proof. Run the program with t = 1 and plot a histogram of 1000 samples. Use 10, 100, 1000 and 10000 samples to estimate the mean of the Poisson(1) distribution and provide the standard error and associated confidence bounds on the estimate for each case.
+
+**Solution:** 
+
+The transformation method for generating samples of Poission (t) random variables:
+
+The pmf of  Poission (t) distribution,
+```math
+P (X=n) = (e^(-t) t^n)/n! , n = 0, 1, 2, …
+
+For t=1, P (X=n)=  e^(-1)/n!
+
+Poission (t) random variables can be generated from U ∼ Unifrom (0, 1) distribution based on:
+If X1, X2, …, Xn are i.i.d. Exponential (1) random variables, and S_n=∑_(i=1)^n▒X_i , then 
+P ( Sn ≤ t <Sn+1 ) = (e^(-t) t^n)/n!   Follows Poisson(t) distribution.
+The Exponential (λ) can be generated from uniform random variables using the transformation: 
+If U ∼ Uniform(0,1) , X= -log⁡(U)/λ  will be an Exponential (λ) random variable. 
 
 
