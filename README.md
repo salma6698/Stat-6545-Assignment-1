@@ -167,7 +167,7 @@ Therefore, the proposal distribution is chosen as N (2, 0.8).
 
 To find the acceptance of a sample we need to compare the ratio of target density f (x) and the proposal density g (x).
 
-The acceptance ratio $$= \frac{f(x)}{M.g(x)} for all x. We have to estimate M such that 
+The acceptance ratio $$= \frac{f(x)}{M.g(x)}$$ for all x. We have to estimate M such that 
 M. g(x) ≥ f (x) for all x. This means the proposal density dominates the target density.
 
 **Result from R code:**
