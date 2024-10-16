@@ -42,6 +42,7 @@ The plotted histogram closely matches the Binomial (10, 1/3) distribution.
 **(c)** We know that the expectation of a Binomial (10, 1/3) distribution is exactly 10/3. However, let’s pretend that we don’t know its true value and want to estimate it using elementary Monte Carlo integration. Use 100 samples generated with one of the methods above to estimate the expectation of a Binomial (10, 1/3) distribution and provide the standard error of the estimate and approximate confidence bounds as per the Central Limit Theorem. You should briefly restate the theory behind this approximation before applying it: simply putting the answer with confidence bounds will not earn full marks.
 
 **Solution:**
+
 We know the expectation of Binomial (n, p) is n * p. Here, it is 10 * 1/3 = 10/3.
 
 We can also estimate the expectation of a Binomial distribution using Monte Carlo simulation. 
