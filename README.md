@@ -4,6 +4,7 @@
 **(a)** Write a program that uses the inversion method to sample from a Binomial (10, 1/3) distribution. Run the program and plot a histogram of 1, 000 samples. Recall that here you will need to make use of the pseudo-inverse of the cumulative distribution function.
 
 **Solution:**
+
 To sample from Binomial (n, p) distribution using inversion method we need to consider CDF of binomial distribution. The CDF is:
 
 ```math
@@ -19,6 +20,7 @@ The histogram represents the frequency distribution of 1000 samples drawn from B
 **(b)** Now, using what you know about Binomial distributions, write a program that uses a combination of the inversion and transformation methods to sample from the same Binomial (10, 1/3) distribution. Run the program and plot a histogram of 1,000 samples. For this part, your answer should include a short proof of the correctness of your approach as well as the program itself.
 
 **Solution:**
+
 Here, we use the combination of both inversion and transformation methods. This combinantion is useful when we want to reduce computational effort of the target distribution.
 
 **Inversion method:** as explained in (a), the inversion method relies on the CDF of Binomial distribution. By generating U ~ Uniform (0,1) and finding the smallest x such that F(x) ≥ U. 
@@ -28,11 +30,13 @@ Here, we use the combination of both inversion and transformation methods. This 
 For Binomial distribution, we can transform a sum of Bernoulli trials with each probability of success is (p). For Binomial ( n=10, p=1/3), We can simulate the sum of 10 Bernoulli trials each with probability p=1/3.
 
 **Proof of Correctness:**
+
 Each Bernoulli trial is an independent random variable with probability p = 1/3. The sum of these independent Bernoulli trials gives the Binomial distribution.
 
 That means sampling from Binomial distribution can be done by generating n Bernoulli samples. This transformation method works well because it has binary outcomes and can be compared with Uniform.
 
 **Result from R code:**
+
 The plotted histogram closely matches the Binomial (10, 1/3) distribution.
 
 **(c)** We know that the expectation of a Binomial (10, 1/3) distribution is exactly 10/3. However, let’s pretend that we don’t know its true value and want to estimate it using elementary Monte Carlo integration. Use 100 samples generated with one of the methods above to estimate the expectation of a Binomial (10, 1/3) distribution and provide the standard error of the estimate and approximate confidence bounds as per the Central Limit Theorem. You should briefly restate the theory behind this approximation before applying it: simply putting the answer with confidence bounds will not earn full marks.
