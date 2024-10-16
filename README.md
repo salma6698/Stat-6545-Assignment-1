@@ -1,3 +1,5 @@
+\usepackage{amsmath}
+\usepackage{mathtools}
 # Stat-6545-Assignment-1
 1. Suppose that you have only have access to a routine that produces samples U from the Uniform [0, 1] distribution. Most packages used for statistical computing, such as R or MATLAB have access to such a routine. 
 (a) Write a program that uses the inversion method to sample from a Binomial (10, 1/3) distribution. Run the program and plot a histogram of 1, 000 samples. Recall that here you will need to make use of the pseudo-inverse of the cumulative distribution function.
@@ -49,7 +51,7 @@ SE = \sigma / \sqrt{n}
 Where σ is the sample standard deviation and n is the number of samples.
 an approximate 95% confidence interval for the expectation:
 ```math
-\hat{\mu} \pm \hat{\sigma}/\sqrt{n}
+\hat{\mu} \pm  z_0.025 . \hat{\sigma}/\sqrt{n}
 ```
 where, ```math 
 \hat{\mu} 
