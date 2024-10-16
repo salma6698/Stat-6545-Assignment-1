@@ -1,20 +1,29 @@
+set.seed(123)
+n_value<-1000
+# setting parameters
+n<- 10
+p<- 1/3
 # Function for binomial CDF
 binom_CDF <- function (x,n,p){
-  sum (dbinom (0:x, n,p))
+  return(pbinom(x,n,p))
 }
 # Function for generating sample from Binomial (10, 1/3) using inversion method
-binom_inversion_sample<- function (n,p){
+binom_inversion<- function (n_value, n, p){
+samples<-numeric(n_value)
+for(i in 1:n_value){
   U <- runif(1)
-  x<- 0
-  while (binom_CDF (x,n,p) < U){
-    x<- x + 1
+for(x in 0:n){
+  if (binom_CDF (x,n,p) >= U){
+    samples[i]<- x
+break
   }
-  return (x)
+}
+}
+  return (samples)
 }
 
 # Generating 1000 samples
-set.seed(123)
-sample_Inversion <- replicate(1000, binom_inversion_sample(n,p)) 
+sample_Inversion <- binom_inversion(n_value, n,p)
 
 #Histogram
 hist (sample_Inversion, breaks= 10, main = "Inversion Method: Binomial(10, 1/3)",
