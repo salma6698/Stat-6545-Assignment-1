@@ -58,11 +58,13 @@ is the mean and z_{0.025}=1.96 is the critical value for a 95% confidence interv
 •	The mean of the samples is our estimate of the expectation.
 •	We calculate the standard error and 95% confidence interval using the Central Limit Theorem.
 
-**Restatement of the Theory:** The Central Limit Theorem states that for large enough sample sizes, the sampling distribution of the sample mean will be approximately normally distributed, regardless of the underlying distribution. The mean of this distribution is the true mean, and the standard deviation is the standard error. The 95% confidence interval is then computed as mean \pm 1.96 * SE.
+**Restatement of the Theory:** The Central Limit Theorem states that for large enough sample sizes, the sampling distribution of the sample mean will be approximately normally distributed, regardless of the underlying distribution. The mean of this distribution is the true mean, and the standard deviation is the standard error. The 95% confidence interval is then computed as $$mean \pm 1.96 * SE$$.
 
 **Result from R code:**
 Estimated expectation: 3.34
+
 Standard error: 0.144404
+
 95% confidence interval: (3.056968, 3.623032)
 
 
