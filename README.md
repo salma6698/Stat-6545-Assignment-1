@@ -159,11 +159,11 @@ Where, $$N (μ, σ^2)$$ is the normal density function.
 
 We have to choose a single normal distribution g (x) as the proposal distribution. Let the reasonable choice to use a normal distribution:
 
- Mean (μ) should be somewhere between the means of two mixture components.
- 
-Standard deviation (σ) should be large enough to cover both normal components.
+**Mean (μ) of the proposal distribution:** The target distribution has most of its mass near 2 as the weight for the second normal distribution is 0.8. Thus, it is reasonable to choose mean for the proposal distribution = 2.
 
-We can empirically choose μ = 1.5 and σ = 0.8 for the proposal distribution.
+**Standard deviation (σ) of the proposal distribution:**  The standard deviation of two given distributions are $$\sqrt(0.5)$$ and $$\sqrt(0.1)$$. As the second distribution has larger weight and also considering the first distribution a reasonable choice should be = 0.8.
+
+Therefore, the proposal distribution is chosen as N (2, 0.8).
 
 To find the acceptance of a sample we need to compare the ratio of target density f (x) and the proposal density g (x).
 
@@ -172,7 +172,7 @@ M. g(x) ≥ f (x) for all x. This means the proposal density dominates the targe
 
 **Result from R code:**
 
-Acceptance rate: 0.6176652
+Acceptance rate: 0.6849315 
 
 **Sanity Check:**
 
