@@ -92,7 +92,7 @@ For  t=1, $$P (X=n)=  \frac{e^{-1}}{n!}$$
 
 Poisson (t) random variables can be generated from U ∼ Unifrom (0, 1) distribution based on:
 
-If X1, X2, …, Xn are i.i.d. Exponential (1) random variables, and $$S_n=\sum_{i=1}^n X_i$$ , then
+If $$X_1, X_2, …, X_n$$ are i.i.d. Exponential (1) random variables, and $$S_n=\sum_{i=1}^n X_i$$ , then
  
 $$P ( S_n ≤ t <S_{(n+1)} ) = \frac{e^{-t} t^n}{n!}$$   Follows Poisson(t) distribution.
 
