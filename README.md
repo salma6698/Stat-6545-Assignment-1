@@ -4,6 +4,6 @@
 
 Solution:
 To sample from Binomial (n, p) distribution using inversion method we need to consider CDF of binomial distribution. The CDF is:
-$\` F( x ) = P( X ≤ x ) = \sum_{i=0}^x {n \\choose i) p^i q^((n-i) )`$
+$ F( x ) = P( X ≤ x ) = \sum_{i=0}^x {n \\choose i) p^i q^((n-i) )$
 For a given Uniform random sample U ~ Uniform (0,1)  and transforming it using the inverse of the CDF of binomial dstribution. We simulate U and find the smallest x such that the cumulative probability P( X ≤ x ) is greater than or equal to U. 
 npm install @stdlib/stats-base-dists-binomial-pmf
