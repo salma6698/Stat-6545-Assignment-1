@@ -70,7 +70,7 @@ Standard error: 0.144404
 
 95% confidence interval: (3.056968, 3.623032)
 
-2. Write a program that draws samples of Poisson(t) random variables using Uniform[0, 1] variables as input. Use the transformation method to do so. Hint: recall that if Xi are i.i.d. Exponential(1) random variables and Sn = Pn i=1 Xi , then P(Sn ≤ t ≤ Sn+1) = e −t t n n! . You may use this result without proof. Run the program with t = 1 and plot a histogram of 1000 samples. Use 10, 100, 1000 and 10000 samples to estimate the mean of the Poisson(1) distribution and provide the standard error and associated confidence bounds on the estimate for each case.
+2. Write a program that draws samples of Poisson(t) random variables using Uniform[0, 1] variables as input. Use the transformation method to do so. Hint: recall that if Xi are i.i.d. Exponential(1) random variables and $$ S_n=\sum_{i=1}^n X_i$$ , then $$P ( S_n ≤ t <S_(n+1) ) = (\exp(-t) t^n)/n!$$ . You may use this result without proof. Run the program with t = 1 and plot a histogram of 1000 samples. Use 10, 100, 1000 and 10000 samples to estimate the mean of the Poisson(1) distribution and provide the standard error and associated confidence bounds on the estimate for each case.
 
 **Solution:** 
 
@@ -78,14 +78,139 @@ The transformation method for generating samples of Poission (t) random variable
 
 The pmf of  Poission (t) distribution,
 ```math
-P (X=n) = (e^(-t) t^n)/n! , n = 0, 1, 2, …
+P (X=n) = (\exp(-t) t^n)/n! , n = 0, 1, 2, …
 
-For t=1, P (X=n)=  e^(-1)/n!
+For t=1, P (X=n)=  \exp(-1)/n!
+```
 
 Poission (t) random variables can be generated from U ∼ Unifrom (0, 1) distribution based on:
-If X1, X2, …, Xn are i.i.d. Exponential (1) random variables, and S_n=∑_(i=1)^n▒X_i , then 
-P ( Sn ≤ t <Sn+1 ) = (e^(-t) t^n)/n!   Follows Poisson(t) distribution.
-The Exponential (λ) can be generated from uniform random variables using the transformation: 
-If U ∼ Uniform(0,1) , X= -log⁡(U)/λ  will be an Exponential (λ) random variable. 
 
+If X1, X2, …, Xn are i.i.d. Exponential (1) random variables, and $$ S_n=\sum_{i=1}^n X_i$$ , then
+ 
+$$P ( S_n ≤ t <S_(n+1) ) = (\exp(-t) t^n)/n!$$   Follows Poisson(t) distribution.
+
+The Exponential (λ) can be generated from uniform random variables using the transformation:
+
+If U ∼ Uniform(0,1) , $$X= -log⁡(U)/λ$$  will be an Exponential (λ) random variable. 
+
+Here, we use λ =1 for Exponential (1).
+
+To generate Poission (t) random variables:
+
+1. Generate X1, X2, …, Xn  as i.i.d. Exponential (1) random variables using the transformation method on uniform random variables.
+
+2. Sum the exponential random variables until the sum exceeds 𝑡.
+
+3. The number of terms summed before exceeding 𝑡 is a Poisson random variable.
+
+**Result from R code:**
+
+Sample Size: 10
+
+Estimated Mean: 1.5
+
+Standard Error: 0.4772607
+
+95% Confidence Interval: 0.564569 2.435431 
+
+Sample Size: 100
+
+Estimated Mean: 0.9
+
+Standard Error: 0.09795897
+
+95% Confidence Interval: 0.7080004 1.092 
+
+Sample Size: 1000
+
+Estimated Mean: 1.026
+
+Standard Error: 0.03095613
+
+95% Confidence Interval: 0.965326 1.086674 
+
+Sample Size: 10000
+
+Estimated Mean: 0.9906
+
+Standard Error: 0.009896512
+
+95% Confidence Interval: 0.9712028 1.009997
+
+**3.** Finally, let us consider rejection sampling. We saw in class that rejection sampling is a generalpurpose sampling method that needs to be used judiciously in order to make it work efficiently. A poorly chosen proposal distribution will result in a high rejection rate.
+
+(a) Suppose we have a mixture of a N(1, 0.5) and a N(2, 0.1) distribution with weights α1 = 0.2 and α2 = 0.8. Use a rejection sampling method to draw from this mixture with a single normal distribution as a proposal. Choose the best parameters for this distribution (with some justification why you have done so). What is the acceptance rate of your rejection sampler? As a sanity check, you can try implementing the composition method to check if you are getting the right answer.
+
+**Solution:**
+We need to sample from a mixture of two normal distributions, N (1, 0.5) and N (2, 0.1), with weights α_1 = 0.2 and α_2 = 0.8.
+
+The target distribution is defined as,
+
+$$f(x)=0.2 N (1,0.5)+0.8 N (2,0.1)$$
+
+Where, N (μ, σ^2) is the normal density function.
+
+We have to choose a single normal distribution g (x) as the proposal distribution. Let the reasonable choice to use a normal distribution:
+
+ Mean (μ) should be somewhere between the means of two mixture components.
+ 
+Standard deviation (σ) should be large enough to cover both normal components.
+
+We can empirically choose μ = 1.5 and σ = 0.8 for the proposal distribution.
+
+To find the acceptance of a sample we need to compare the ratio of target density f (x) and the proposal density g (x).
+
+The acceptance ratio = f(x)/(M.g(x) ) for all x. We have to estimate M such that 
+M. g(x) ≥ f (x) for all x. This means the proposal density dominates the target density.
+
+**Result from R code:**
+
+Acceptance rate: 0.6176652
+
+**Sanity Check:**
+
+The composition method is implemented as a sanity check to ensure the rejection sampling works correctly. The histogram generated from the composition method matches the rejection sampling result which confirms that the rejection sampling is correctly used here. 
+
+**(b)** Consider Y with an Exponential(λ) distribution and X = Y + a where a > 0. Devise a rejection sampler for X using draws of Y as a proposal. What happens to the efficiency of your sampler when a grows? Why does this happen?
+
+**Solution:**
+
+Givern, Y ∼ Exponential(λ) 
+
+The pdf of Y is,
+
+$$f_Y (y)= λ\exp(-λy)  ,y ≥ 0$$  which is the proposal distribution.
+
+Now, X = Y + a, where a > 0. This shifts the distribution of Y by a. So the PDF of X is shifted to the right by a,
+
+$$f_X (x)= λ\exp(-λ(x-a))  ,x ≥a$$ This is the target distribution.
+
+**Rejection sampling:**
+
+In rejection sampling, we want to sample from X using Y as a proposal.
+
+We need to find a constant M such that $$f_X (x)  ≤ M f_Y (y) for all x ≥a.$$
+
+Here, the choice of M can be,  $$M= \exp(λa)$$ this can be the smallest possible value that satisfies the inequality.
+This can be found as,  $$\frac{f_X (y)} {M f_Y (y)} =  \frac{λ \exp(-λ(y-a))} {M λ \exp(-λy)} = \frac{\exp(λa)} {M}  $$
+
+**Increasing a:**
+
+As a increases, the constant M increases, that means the acceptance of proposed samples will be reduced thus reduces the efficiency of the sampler. As a increases, the target distribution $$f_X (x)$$ shifts further to the right compared to the proposal distribution $$f_Y (y)$$.
+
+**Efficiency of the sampling:**
+
+The efficiency can be affected by the choice of a. As a increases, the acceptance rate is expected to decrease because of the increasing distance of the samples from the target distribution. 
+
+**Result from R code:**
+
+a= 0.5 Acceptance Rate= 0.6071645 
+
+a= 1 Acceptance Rate= 0.3616637 
+
+a= 2 Acceptance Rate= 0.1418239 
+
+a= 5 Acceptance Rate= 0.006565126
+
+Hence, the result for different a values shows that as a increases the acceptance rate decreases. 
 
