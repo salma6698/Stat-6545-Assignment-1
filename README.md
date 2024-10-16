@@ -19,7 +19,7 @@ The histogram represents the frequency distribution of 1000 samples drawn from B
 **Solution:**
 Here, we use the combination of both inversion and transformation methods. This combinantion is useful when we want to reduce computational effort of the target distribution.
 
-**Inversion method:** as explained in (a), the inversion method relies on the CDF of Binomial distribution. By generating U ~ Uniform (0,1) and finding the smallest x such that $ F(x) \leq U $.
+**Inversion method:** as explained in (a), the inversion method relies on the CDF of Binomial distribution. By generating U ~ Uniform (0,1) and finding the smallest x such that ```math F(x) \leq U. ```
 
 **Transformation method:** It involves using a different related distribution here it is Bernouli (p) distribution to get sample from Binomial (n, p) distribution.
 
