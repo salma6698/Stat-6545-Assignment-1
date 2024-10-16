@@ -7,7 +7,7 @@ To sample from Binomial (n, p) distribution using inversion method we need to co
 
 ```math
 
-F( x ) = P( X \leq x ) = \sum_{i=0}^x \binom{n}{i} p^i q^{(n-i)}
+F( x ) = P( X \leq x ) = \sum_{i=0}^x \binom{n}{i} p^i  q^{(n-i)}
 ```
 For a given Uniform random sample U ~ Uniform (0,1)  and transforming it using the inverse of the CDF of binomial dstribution. We simulate U and find the smallest x such that the cumulative probability P( X ≤ x ) is greater than or equal to U. 
 
@@ -42,7 +42,7 @@ We can also estimate the expectation of a Binomial distribution using Monte Carl
 
 **Monte Carlo integration:**  It is a technique to estimate the expected value of a random variable by generating samples from that distribution and computing the mean. In this case, we approximate the expected value of binomial distribution by taking the average of simulated random samples from it.
 
-**Central Limit Theorem:** For sufficiently large sample sizes, the sample mean follows an approximately normal distribution. We will generate 100 samples from binomial distribution using the inversion method and compute the sample mean as an estimator for the expectation. The standard error of the mean is given by: SE = \sigma /\sqrt{n}
+**Central Limit Theorem:** For sufficiently large sample sizes, the sample mean follows an approximately normal distribution. We will generate 100 samples from binomial distribution using the inversion method and compute the sample mean as an estimator for the expectation. The standard error of the mean is given by: SE = \sigma / \sqrt{n}
 
 Where σ is the sample standard deviation and n is the number of samples.
 an approximate 95% confidence interval for the expectation:
