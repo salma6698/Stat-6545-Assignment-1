@@ -59,7 +59,7 @@ an approximate 95% confidence interval for the expectation:
 \hat{\mu} \pm  z_{0.025} . \hat{\sigma}/\sqrt{n}
 ```
 where, $$\hat{\mu}$$ 
-is the mean and z_{0.025}=1.96 is the critical value for a 95% confidence interval.
+is the mean and $$z_{0.025}=1.96$$ is the critical value for a 95% confidence interval.
 
 **Explanation:**
 
