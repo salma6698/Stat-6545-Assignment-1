@@ -98,13 +98,13 @@ $$P ( S_n ≤ t <S_{(n+1)} ) = \frac{e^{-t} t^n}{n!}$$   Follows Poisson(t) dist
 
 The Exponential (λ) can be generated from uniform random variables using the transformation:
 
-If U ∼ Uniform(0,1) , $$X= -log⁡(U)/λ$$  will be an Exponential (λ) random variable. 
+If U ∼ Uniform(0,1) , $$X= \frac{-log⁡(U)}{λ}$$  will be an Exponential (λ) random variable. 
 
 Here, we use λ =1 for Exponential (1).
 
 To generate Poisson (t) random variables:
 
-1. Generate X1, X2, …, Xn  as i.i.d. Exponential (1) random variables using the transformation method on uniform random variables.
+1. Generate $$X_1, X_2, …, X_n$$  as i.i.d. Exponential (1) random variables using the transformation method on uniform random variables.
 
 2. Sum the exponential random variables until the sum exceeds 𝑡.
 
