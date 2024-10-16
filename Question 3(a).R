@@ -82,9 +82,7 @@ composition_sampling <- function(n_value) {
 n_value <- 1000
 comp_samples <- composition_sampling(n_value)
 
-# Plot histogram of the composition method samples for sanity check
+# Plot histogram for sanity check
 hist(comp_samples, breaks = 30, probability = TRUE, main = "Histogram of Samples from Composition",
      xlab = "x", col = "lightgreen")
-
-# Overlay the true mixture density for comparison
 curve(fx, add = TRUE, col = "red", lwd = 2)
