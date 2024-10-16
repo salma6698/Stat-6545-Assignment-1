@@ -16,7 +16,7 @@ For a given Uniform random sample U ~ Uniform (0,1)  and transforming it using t
 
 The histogram represents the frequency distribution of 1000 samples drawn from Binomial (10, 1/3) distribution. The values are mostly clusters around 2 to 4 where the mean of the distribution lies.
 
-(b) Now, using what you know about Binomial distributions, write a program that uses a combination of the inversion and transformation methods to sample from the same Binomial (10, 1/3) distribution. Run the program and plot a histogram of 1,000 samples. For this part, your answer should include a short proof of the correctness of your approach as well as the program itself.
+**(b)** Now, using what you know about Binomial distributions, write a program that uses a combination of the inversion and transformation methods to sample from the same Binomial (10, 1/3) distribution. Run the program and plot a histogram of 1,000 samples. For this part, your answer should include a short proof of the correctness of your approach as well as the program itself.
 
 **Solution:**
 Here, we use the combination of both inversion and transformation methods. This combinantion is useful when we want to reduce computational effort of the target distribution.
@@ -35,7 +35,7 @@ That means sampling from Binomial distribution can be done by generating n Berno
 **Result from R code:**
 The plotted histogram closely matches the Binomial (10, 1/3) distribution.
 
-(c) We know that the expectation of a Binomial (10, 1/3) distribution is exactly 10/3. However, let’s pretend that we don’t know its true value and want to estimate it using elementary Monte Carlo integration. Use 100 samples generated with one of the methods above to estimate the expectation of a Binomial (10, 1/3) distribution and provide the standard error of the estimate and approximate confidence bounds as per the Central Limit Theorem. You should briefly restate the theory behind this approximation before applying it: simply putting the answer with confidence bounds will not earn full marks.
+**(c)** We know that the expectation of a Binomial (10, 1/3) distribution is exactly 10/3. However, let’s pretend that we don’t know its true value and want to estimate it using elementary Monte Carlo integration. Use 100 samples generated with one of the methods above to estimate the expectation of a Binomial (10, 1/3) distribution and provide the standard error of the estimate and approximate confidence bounds as per the Central Limit Theorem. You should briefly restate the theory behind this approximation before applying it: simply putting the answer with confidence bounds will not earn full marks.
 
 **Solution:**
 We know the expectation of Binomial (n, p) is n * p. Here, it is 10 * 1/3 = 10/3.
@@ -72,7 +72,7 @@ Standard error: 0.144404
 
 95% confidence interval: (3.056968, 3.623032)
 
-2. Write a program that draws samples of Poisson(t) random variables using Uniform[0, 1] variables as input. Use the transformation method to do so. Hint: recall that if Xi are i.i.d. Exponential(1) random variables and $$ S_n=\sum_{i=1}^n X_i$$ , then $$P ( S_n ≤ t <S_(n+1) ) = (\exp(-t) t^n)/n!$$ . You may use this result without proof. Run the program with t = 1 and plot a histogram of 1000 samples. Use 10, 100, 1000 and 10000 samples to estimate the mean of the Poisson(1) distribution and provide the standard error and associated confidence bounds on the estimate for each case.
+**2.** Write a program that draws samples of Poisson(t) random variables using Uniform[0, 1] variables as input. Use the transformation method to do so. Hint: recall that if Xi are i.i.d. Exponential(1) random variables and $$ S_n=\sum_{i=1}^n X_i$$ , then $$P ( S_n ≤ t <S_(n+1) ) = (\exp(-t) t^n)/n!$$ . You may use this result without proof. Run the program with t = 1 and plot a histogram of 1000 samples. Use 10, 100, 1000 and 10000 samples to estimate the mean of the Poisson(1) distribution and provide the standard error and associated confidence bounds on the estimate for each case.
 
 **Solution:** 
 
@@ -141,7 +141,7 @@ Standard Error: 0.009896512
 
 **3.** Finally, let us consider rejection sampling. We saw in class that rejection sampling is a generalpurpose sampling method that needs to be used judiciously in order to make it work efficiently. A poorly chosen proposal distribution will result in a high rejection rate.
 
-(a) Suppose we have a mixture of a N(1, 0.5) and a N(2, 0.1) distribution with weights α1 = 0.2 and α2 = 0.8. Use a rejection sampling method to draw from this mixture with a single normal distribution as a proposal. Choose the best parameters for this distribution (with some justification why you have done so). What is the acceptance rate of your rejection sampler? As a sanity check, you can try implementing the composition method to check if you are getting the right answer.
+**(a)** Suppose we have a mixture of a N(1, 0.5) and a N(2, 0.1) distribution with weights α1 = 0.2 and α2 = 0.8. Use a rejection sampling method to draw from this mixture with a single normal distribution as a proposal. Choose the best parameters for this distribution (with some justification why you have done so). What is the acceptance rate of your rejection sampler? As a sanity check, you can try implementing the composition method to check if you are getting the right answer.
 
 **Solution:**
 We need to sample from a mixture of two normal distributions, N (1, 0.5) and N (2, 0.1), with weights α_1 = 0.2 and α_2 = 0.8.
