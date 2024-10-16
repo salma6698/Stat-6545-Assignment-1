@@ -13,6 +13,7 @@ F( x ) = P( X \leq x ) = \sum_{i=0}^x \binom{n}{i} p^i  q^{(n-i)}
 For a given Uniform random sample U ~ Uniform (0,1)  and transforming it using the inverse of the CDF of binomial dstribution. We simulate U and find the smallest x such that the cumulative probability P( X ≤ x ) is greater than or equal to U. 
 
 **Result from R code:**
+
 The histogram represents the frequency distribution of 1000 samples drawn from Binomial (10, 1/3) distribution. The values are mostly clusters around 2 to 4 where the mean of the distribution lies.
 
 (b) Now, using what you know about Binomial distributions, write a program that uses a combination of the inversion and transformation methods to sample from the same Binomial (10, 1/3) distribution. Run the program and plot a histogram of 1,000 samples. For this part, your answer should include a short proof of the correctness of your approach as well as the program itself.
