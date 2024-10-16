@@ -77,7 +77,7 @@ Standard error: 0.144404
 
 95% confidence interval: (3.056968, 3.623032)
 
-**2.** Write a program that draws samples of Poisson(t) random variables using Uniform[0, 1] variables as input. Use the transformation method to do so. Hint: recall that if Xi are i.i.d. Exponential(1) random variables and $$S_n=\sum_{i=1}^n X_i$$ , then $$P ( S_n ≤ t <S_(n+1) ) = (\exp(-t) t^n)/n!$$ . You may use this result without proof. Run the program with t = 1 and plot a histogram of 1000 samples. Use 10, 100, 1000 and 10000 samples to estimate the mean of the Poisson(1) distribution and provide the standard error and associated confidence bounds on the estimate for each case.
+**2.** Write a program that draws samples of Poisson(t) random variables using Uniform[0, 1] variables as input. Use the transformation method to do so. Hint: recall that if Xi are i.i.d. Exponential(1) random variables and $$S_n=\sum_{i=1}^n X_i$$ , then $$P ( S_n ≤ t <S_{(n+1)} ) = (\exp(-t) t^n)/n!$$ . You may use this result without proof. Run the program with t = 1 and plot a histogram of 1000 samples. Use 10, 100, 1000 and 10000 samples to estimate the mean of the Poisson(1) distribution and provide the standard error and associated confidence bounds on the estimate for each case.
 
 **Solution:** 
 
@@ -94,7 +94,7 @@ Poisson (t) random variables can be generated from U ∼ Unifrom (0, 1) distribu
 
 If X1, X2, …, Xn are i.i.d. Exponential (1) random variables, and $$S_n=\sum_{i=1}^n X_i$$ , then
  
-$$P ( S_n ≤ t <S_(n+1) ) = (\exp(-t) t^n)/n!$$   Follows Poisson(t) distribution.
+$$P ( S_n ≤ t <S_{(n+1)} ) = (\exp(-t) t^n)/n!$$   Follows Poisson(t) distribution.
 
 The Exponential (λ) can be generated from uniform random variables using the transformation:
 
