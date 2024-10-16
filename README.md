@@ -146,16 +146,16 @@ Standard Error: 0.009896512
 
 **3.** Finally, let us consider rejection sampling. We saw in class that rejection sampling is a generalpurpose sampling method that needs to be used judiciously in order to make it work efficiently. A poorly chosen proposal distribution will result in a high rejection rate.
 
-**(a)** Suppose we have a mixture of a N(1, 0.5) and a N(2, 0.1) distribution with weights α1 = 0.2 and α2 = 0.8. Use a rejection sampling method to draw from this mixture with a single normal distribution as a proposal. Choose the best parameters for this distribution (with some justification why you have done so). What is the acceptance rate of your rejection sampler? As a sanity check, you can try implementing the composition method to check if you are getting the right answer.
+**(a)** Suppose we have a mixture of a N(1, 0.5) and a N(2, 0.1) distribution with weights $$α_1 = 0.2$$ and $$α_2 = 0.8$$. Use a rejection sampling method to draw from this mixture with a single normal distribution as a proposal. Choose the best parameters for this distribution (with some justification why you have done so). What is the acceptance rate of your rejection sampler? As a sanity check, you can try implementing the composition method to check if you are getting the right answer.
 
 **Solution:**
-We need to sample from a mixture of two normal distributions, N (1, 0.5) and N (2, 0.1), with weights $$α_1 = 0.2 and α_2 = 0.8$$.
+We need to sample from a mixture of two normal distributions, N (1, 0.5) and N (2, 0.1), with weights $$α_1 = 0.2$$  and  $$α_2 = 0.8$$.
 
 The target distribution is defined as,
 
 $$f(x)=0.2 N (1,0.5)+0.8 N (2,0.1)$$
 
-Where, N (μ, σ^2) is the normal density function.
+Where, $$N (μ, σ^2)$$ is the normal density function.
 
 We have to choose a single normal distribution g (x) as the proposal distribution. Let the reasonable choice to use a normal distribution:
 
@@ -167,7 +167,7 @@ We can empirically choose μ = 1.5 and σ = 0.8 for the proposal distribution.
 
 To find the acceptance of a sample we need to compare the ratio of target density f (x) and the proposal density g (x).
 
-The acceptance ratio = f(x)/(M.g(x) ) for all x. We have to estimate M such that 
+The acceptance ratio $$= \frac{f(x)}{M.g(x)} for all x. We have to estimate M such that 
 M. g(x) ≥ f (x) for all x. This means the proposal density dominates the target density.
 
 **Result from R code:**
@@ -186,11 +186,11 @@ Givern, Y ∼ Exponential(λ)
 
 The pdf of Y is,
 
-$$f_Y (y)= λ\exp(-λy)  ,y ≥ 0$$  which is the proposal distribution.
+$$f_Y (y)= \frac{λ}{e^{-λy}}  ,y ≥ 0$$  which is the proposal distribution.
 
 Now, X = Y + a, where a > 0. This shifts the distribution of Y by a. So the PDF of X is shifted to the right by a,
 
-$$f_X (x)= λ\exp(-λ(x-a))  ,x ≥a$$ This is the target distribution.
+$$f_X (x)= \frac{λ}{e^{-λ(x-a)}}  ,x ≥a$$ This is the target distribution.
 
 **Rejection sampling:**
 
@@ -199,7 +199,7 @@ In rejection sampling, we want to sample from X using Y as a proposal.
 We need to find a constant M such that $$f_X (x)  ≤ M f_Y (y) for all x ≥a.$$
 
 Here, the choice of M can be,  $$M= \exp(λa)$$ this can be the smallest possible value that satisfies the inequality.
-This can be found as,  $$\frac{f_X (y)} {M f_Y (y)} =  \frac{λ \exp(-λ(y-a))} {M λ \exp(-λy)} = \frac{\exp(λa)} {M}  $$
+This can be found as,  $$\frac{f_X (y)} {M f_Y (y)} =  \frac{λ e^{-λ(y-a)}} {M λ e^{-λy}} = \frac{e^{λa}}{M}$$
 
 **Increasing a:**
 
