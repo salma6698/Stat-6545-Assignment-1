@@ -7,7 +7,7 @@ To sample from Binomial (n, p) distribution using inversion method we need to co
 
 ```math
 
-F( x ) = P( X \leq x ) = \sum_{i=0}^x {n \\choose i} p^i q^(n-i)
+F( x ) = P( X \leq x ) = \sum_{i=0}^x \binom{n}{i} p^i q^(n-i)
 ```
 For a given Uniform random sample U ~ Uniform (0,1)  and transforming it using the inverse of the CDF of binomial dstribution. We simulate U and find the smallest x such that the cumulative probability P( X ≤ x ) is greater than or equal to U. 
 
@@ -45,8 +45,25 @@ We can also estimate the expectation of a Binomial distribution using Monte Carl
 **Central Limit Theorem:** For sufficiently large sample sizes, the sample mean follows an approximately normal distribution. We will generate 100 samples from binomial distribution using the inversion method and compute the sample mean as an estimator for the expectation. The standard error of the mean is given by:
 
 ```math
-SE = \sigma /$\sqrt{\n}$
+SE = \sigma /\sqrt{n}
 
 Where σ is the sample standard deviation and n is the number of samples.
 an approximate 95% confidence interval for the expectation:
+
+\hat{\mu} \pm \hat{\sigma}/\sqrt{n}
+
+where, \hat{\mu} is the mean and z_0.025=1.96 is the critical value for a 95% confidence interval.
+
+**Explanation:**
+•	The mean of the samples is our estimate of the expectation.
+•	We calculate the standard error and 95% confidence interval using the Central Limit Theorem.
+
+**Restatement of the Theory:** The Central Limit Theorem states that for large enough sample sizes, the sampling distribution of the sample mean will be approximately normally distributed, regardless of the underlying distribution. The mean of this distribution is the true mean, and the standard deviation is the standard error. The 95% confidence interval is then computed as mean \pm 1.96 * SE.
+
+**Result from R code:**
+Estimated expectation: 3.34
+Standard error: 0.144404
+95% confidence interval: (3.056968, 3.623032)
+
+
 
