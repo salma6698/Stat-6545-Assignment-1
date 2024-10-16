@@ -87,7 +87,7 @@ The pmf of  Poisson (t) distribution,
 ```math
 P (X=n) = \frac{e^{-t} t^n}{n!} , n = 0, 1, 2, …
 
-For t=1, P (X=n)=  \frac{e^{-1}}{n!}
+For  t=1, P (X=n)=  \frac{e^{-1}}{n!}
 ```
 
 Poisson (t) random variables can be generated from U ∼ Unifrom (0, 1) distribution based on:
