@@ -8,9 +8,9 @@ fx <- function(x) {
   d2 <- dnorm(x, mean = 2, sd = sqrt(0.1))  # N(2, 0.1)
   return(alpha1 * d1 + alpha2 * d2)
 }
-# Proposal distribution : N(1.5, 0.8)
+# Proposal distribution : N(2, 0.8)
 gx <- function(x) {
-  dnorm(x, mean = 1.5, sd = 0.8)
+  dnorm(x, mean = 2, sd = 0.8)
 }
 
 # Function for Rejection sampling
@@ -27,7 +27,7 @@ repeat{
 trials<-trials+1
 #Sample from proposal distribution
 
-    x <- rnorm(1, mean = 1.5, sd = 0.8)
+    x <- rnorm(1, mean = 2, sd = 0.8)
   
   # Acceptance probability
       u <- runif(1)
@@ -59,8 +59,6 @@ cat("Acceptance rate:", acceptance_rate, "\n")
 hist(samples, breaks=30, prob = TRUE, main = "Rejection Sampling from Mixture",
      xlab = "x", col = "lightblue", ylim=c(0,1))
 curve(fx, col = "red", lwd = 2, add = TRUE)  # Overlay target density
-
-
 
 
 # Composition method for comparison
