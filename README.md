@@ -149,7 +149,7 @@ Standard Error: 0.009896512
 **(a)** Suppose we have a mixture of a N(1, 0.5) and a N(2, 0.1) distribution with weights α1 = 0.2 and α2 = 0.8. Use a rejection sampling method to draw from this mixture with a single normal distribution as a proposal. Choose the best parameters for this distribution (with some justification why you have done so). What is the acceptance rate of your rejection sampler? As a sanity check, you can try implementing the composition method to check if you are getting the right answer.
 
 **Solution:**
-We need to sample from a mixture of two normal distributions, N (1, 0.5) and N (2, 0.1), with weights α_1 = 0.2 and α_2 = 0.8.
+We need to sample from a mixture of two normal distributions, N (1, 0.5) and N (2, 0.1), with weights $$α_1 = 0.2 and α_2 = 0.8$$.
 
 The target distribution is defined as,
 
