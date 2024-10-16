@@ -51,10 +51,10 @@ an approximate 95% confidence interval for the expectation:
 ```math
 \hat{\mu} \pm  z_0.025 . \hat{\sigma}/\sqrt{n}
 ```
-where, ```math 
+where, 
+```math 
 \hat{\mu} 
-```
-is the mean and z_0.025=1.96 is the critical value for a 95% confidence interval.
+```is the mean and z_0.025=1.96 is the critical value for a 95% confidence interval.
 
 **Explanation:**
 •	The mean of the samples is our estimate of the expectation.
