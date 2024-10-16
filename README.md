@@ -168,7 +168,7 @@ Therefore, the proposal distribution is chosen as N (2, 0.8).
 To find the acceptance of a sample we need to compare the ratio of target density f(x) and the proposal density g(x).
 
 The acceptance ratio $$= \frac{f(x)}{M.g(x)}$$ for all x. We have to estimate M such that 
-$$M. g(x) ≥ f(x)$$ for all x. This means the proposal density dominates the target density.
+$$M. g(x) ≥ f(x)$$  for all x. This means the proposal density dominates the target density.
 
 **Result from R code:**
 
@@ -196,9 +196,9 @@ $$f_X (x)= \frac{λ}{e^{-λ(x-a)}}  ,x ≥a$$ This is the target distribution.
 
 In rejection sampling, we want to sample from X using Y as a proposal.
 
-We need to find a constant M such that $$f_X (x)  ≤ M f_Y (y) for all x ≥a.$$
+We need to find a constant M such that $$f_X (x)  ≤ M f_Y (y)$$  for all $$x ≥a.$$
 
-Here, the choice of M can be,  $$M= \exp(λa)$$ this can be the smallest possible value that satisfies the inequality.
+Here, the choice of M can be,  $$M= e^{λa}$$ this can be the smallest possible value that satisfies the inequality.
 This can be found as,  $$\frac{f_X (y)} {M f_Y (y)} =  \frac{λ e^{-λ(y-a)}} {M λ e^{-λy}} = \frac{e^{λa}}{M}$$
 
 **Increasing a:**
