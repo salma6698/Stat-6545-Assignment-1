@@ -11,7 +11,7 @@ To sample from Binomial (n, p) distribution using inversion method we need to co
 
 F( x ) = P( X \leq x ) = \sum_{i=0}^x \binom{n}{i} p^i  q^{(n-i)}
 ```
-For a given Uniform random sample U ~ Uniform (0,1)  and transforming it using the inverse of the CDF of binomial dstribution. We simulate U and find the smallest x such that the cumulative probability P( X ≤ x ) is greater than or equal to U. 
+For a given Uniform random sample U ~ Uniform (0,1)  and transforming it using the inverse of the CDF of binomial distribution. We simulate U and find the smallest x such that the cumulative probability P( X ≤ x ) is greater than or equal to U. 
 
 **Result from R code:**
 
@@ -21,11 +21,11 @@ The histogram represents the frequency distribution of 1000 samples drawn from B
 
 **Solution:**
 
-Here, we use the combination of both inversion and transformation methods. This combinantion is useful when we want to reduce computational effort of the target distribution.
+Here, we use the combination of both inversion and transformation methods. This combination is useful when we want to reduce computational effort of the target distribution.
 
 **Inversion method:** as explained in (a), the inversion method relies on the CDF of Binomial distribution. By generating U ~ Uniform (0,1) and finding the smallest x such that F(x) ≥ U. 
 
-**Transformation method:** It involves using a different related distribution here it is Bernouli (p) distribution to get sample from Binomial (n, p) distribution.
+**Transformation method:** It involves using a different related distribution here it is Bernoulli (p) distribution to get sample from Binomial (n, p) distribution.
 
 For Binomial distribution, we can transform a sum of Bernoulli trials with each probability of success is (p). For Binomial ( n=10, p=1/3), We can simulate the sum of 10 Bernoulli trials each with probability p=1/3.
 
@@ -80,16 +80,16 @@ Standard error: 0.144404
 
 **Solution:** 
 
-The transformation method for generating samples of Poission (t) random variables:
+The transformation method for generating samples of Poisson (t) random variables:
 
-The pmf of  Poission (t) distribution,
+The pmf of  Poisson (t) distribution,
 ```math
 P (X=n) = (\exp(-t) t^n)/n! , n = 0, 1, 2, …
 
 For t=1, P (X=n)=  \exp(-1)/n!
 ```
 
-Poission (t) random variables can be generated from U ∼ Unifrom (0, 1) distribution based on:
+Poisson (t) random variables can be generated from U ∼ Unifrom (0, 1) distribution based on:
 
 If X1, X2, …, Xn are i.i.d. Exponential (1) random variables, and $$ S_n=\sum_{i=1}^n X_i$$ , then
  
@@ -101,7 +101,7 @@ If U ∼ Uniform(0,1) , $$X= -log⁡(U)/λ$$  will be an Exponential (λ) random
 
 Here, we use λ =1 for Exponential (1).
 
-To generate Poission (t) random variables:
+To generate Poisson (t) random variables:
 
 1. Generate X1, X2, …, Xn  as i.i.d. Exponential (1) random variables using the transformation method on uniform random variables.
 
