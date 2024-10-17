@@ -38,6 +38,7 @@ Each Bernoulli trial is an independent random variable with probability p = 1/3.
 That means sampling from Binomial distribution can be done by generating n Bernoulli samples. This transformation method works well because it has binary outcomes and can be compared with Uniform.
 
 **Result from R code:**
+![image](https://github.com/user-attachments/assets/3063941e-4027-449e-a1ce-4a86c716ba39)
 
 The plotted histogram closely matches the Binomial (10, 1/3) distribution.
 
@@ -145,6 +146,7 @@ Estimated Mean: 0.9906
 Standard Error: 0.009896512
 
 95% Confidence Interval: 0.9712028 1.009997
+![image](https://github.com/user-attachments/assets/36819c8e-ac71-4ae5-bf0d-11c2f70cad95)
 
 **3.** Finally, let us consider rejection sampling. We saw in class that rejection sampling is a generalpurpose sampling method that needs to be used judiciously in order to make it work efficiently. A poorly chosen proposal distribution will result in a high rejection rate.
 
@@ -175,6 +177,8 @@ $$M. g(x) ≥ f(x)$$  for all x. This means the proposal density dominates the t
 **Result from R code:**
 
 Acceptance rate: 0.6849315 
+![image](https://github.com/user-attachments/assets/7b9cf684-ca9b-4f51-9a5f-1781aca1e599)
+![image](https://github.com/user-attachments/assets/4fdda7c8-9eea-4980-8e90-69b717d4a075)
 
 **Sanity Check:**
 
