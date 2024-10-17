@@ -146,6 +146,7 @@ Estimated Mean: 0.9906
 Standard Error: 0.009896512
 
 95% Confidence Interval: 0.9712028 1.009997
+
 ![image](https://github.com/user-attachments/assets/36819c8e-ac71-4ae5-bf0d-11c2f70cad95)
 
 **3.** Finally, let us consider rejection sampling. We saw in class that rejection sampling is a generalpurpose sampling method that needs to be used judiciously in order to make it work efficiently. A poorly chosen proposal distribution will result in a high rejection rate.
