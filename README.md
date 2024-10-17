@@ -14,6 +14,7 @@ F( x ) = P( X \leq x ) = \sum_{i=0}^x \binom{n}{i} p^i  q^{(n-i)}
 For a given Uniform random sample U ~ Uniform (0,1)  and transforming it using the inverse of the CDF of binomial distribution. We simulate U and find the smallest x such that the cumulative probability P( X ≤ x ) is greater than or equal to U. 
       
 **Result from R code:**
+![image](https://github.com/user-attachments/assets/dbb492f5-bd1f-4f3d-8860-2e7855544f35)
 
 The histogram represents the frequency distribution of 1000 samples drawn from Binomial (10, 1/3) distribution. The values are mostly clusters around 2 to 4 where the mean of the distribution lies.
 
